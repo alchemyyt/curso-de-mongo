@@ -1,0 +1,5 @@
+  //para hacer una consulta primero seleccionamos la base de datos que vamos a usar
+  use("sample_training")
+  //luego seleccionamos la coleccion
+  ///para eso primero usamos la palabra clave db el find es js
+  db.zips.find({state:'NY'})
