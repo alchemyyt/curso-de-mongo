@@ -1,0 +1,41 @@
+use("platzi_store")
+//insertar
+/*db.iot.insertOne({
+  sensor:'A001',
+  date:'2022-01-03',
+  readings:[1212]
+})*/
+
+
+
+//este push esta malo porque inserta un array dentro del array y no queremos eso
+/*db.iot.updateOne({
+  sensor:'A001',
+  date:'2022-01-03',
+
+},{$push:{
+  readings:[2323]
+  }
+})*/
+
+//por eso borramos el array que es un elemento dentro de otro array con pop que elimina el primer o ultimo elemento de un array o cualquier pocision
+/*db.iot.updateOne({
+  sensor:'A001',
+  date:'2022-01-03',
+
+},{$pop:{
+  readings:1 //con un 1 aqui borramos el ultimo elemento de un array pero si pusieramos -1 elimina el primero
+  }
+})*/
+
+//ahora si para insertar un elemento en un array
+db.iot.updateOne({
+  sensor:'A001',
+  date:'2022-01-03',
+
+},{$push:{
+  readings:2323 //colocamos los numeros sin los corchetes para no insertar un array
+  }
+})
+
+//el resumen es que si voy a insertar el primer valor del dia uso insertOne y si quiero agregar un valor mas en le dia uso updateOne teniendo cuidado con los corchetes y si me equivoco borro con $pop

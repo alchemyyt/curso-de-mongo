@@ -1,0 +1,11 @@
+use("platzi_store")
+
+//db.inventory.find({"item.description":{$regex:/line/}})
+
+//db.inventory.find({"item.description":{$regex:/LINE/i}})//con la i ponemos que no importa mayuscula y minuscula
+
+//db.inventory.find({"item.description":{$regex:/line$/i}})//con este signo de dolar al final quiere decir que busque los que terminen en line como ultime palabra
+
+//db.inventory.find({"item.description":{$regex:/^single/i}})//con ^ es los que inicien con la plabra single
+
+db.inventory.find({"item.description":{$regex:/^s/im}})//con la m que significa multiline quiere decir que tenga en cuenta los saltos de linea esta consulta lo que quiere decir es que busque todas las descripcione que empiecen por s sin importar si son la primera linea

@@ -1,0 +1,12 @@
+//upsert es la fusion de insert y update
+use("platzi_store")
+db.iot.updateOne({
+  sensor:'A001',
+  date:'2022-01-04',
+
+},{$push:{
+  readings:1234
+  }
+},{
+  upsert:true//esto lo que hace es que automaticamente sabe si no existe el query que le dimos lo va a crear y si existe agrega un elemento mas al array readings en este caso
+})

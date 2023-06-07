@@ -1,0 +1,12 @@
+use("platzi_store")
+//borrar del array reading todos los numeros que sean mayor o igual a 3 de los documentos de sensor 1 los mayor o menor normal mente se usan en query pero tambien se pueden usar en un update con pull
+db.iot.updateMany(
+  //query
+  {sensor:"A001"},
+  //update
+  {
+    $pull:{
+      readings:{$gte:3}
+    }
+  }
+)

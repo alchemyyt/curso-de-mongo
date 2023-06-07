@@ -1,0 +1,20 @@
+use("platzi_store")
+/*
+//remove one element
+db.inventory.updateMany({},{//como el query esta vacio va a cambiar todos los elementos
+  //elimina un elemento en un array
+  $pull:{
+    tags:"book"
+  }
+})
+*/
+//remove many elements
+db.inventory.updateMany({},{//como el query esta vacio va a cambiar todos los elementos
+  //elimina un elemento en un array
+  $pull:{
+    tags:{
+      //operador interno
+      $in:['appliance','school']
+    }
+  }
+})

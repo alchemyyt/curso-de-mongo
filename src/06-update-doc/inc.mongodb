@@ -1,0 +1,7 @@
+use("platzi_store")
+db.products.updateOne(
+  {_id:2},//query
+  {$inc:{//solo para valores con numero lo que hace es incrementar
+    price:888
+  }}//change=> operators
+  );

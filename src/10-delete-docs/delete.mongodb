@@ -1,0 +1,4 @@
+use("platzi_store")
+//db.products.deleteOne({_id:1})
+//db.products.deleteMany({price:100/*query*/})
+db.products.drop()//borra todos los documentos de la coleccion products

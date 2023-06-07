@@ -1,0 +1,17 @@
+use("sample_training")
+
+/*db.trips.find({
+  $expr: {
+    $eq:["$start station id", "$end station id"]
+  } 
+}).count()*///esto nos dice los viajes que empezaron y terminaron en el mismo punto
+
+db.trips.find({
+  $expr: {
+    $and:[
+      {$eq:["$start station id", "$end station id"]},
+      {$gte:["$tripduration",1200]}//asi se tiene que escribir en expr
+      //Error asi no es en expr asi es con otros operator {tripduration:{$gte:1200}}
+    ]
+  } 
+}).count()

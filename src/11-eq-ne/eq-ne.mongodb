@@ -1,0 +1,16 @@
+use("platzi_store")
+
+//Using $eq
+
+/*db.inventory.find({qty:20})//Esto ya es un equal viene implisito*/
+
+/*db.inventory.find({qty:{$eq:20}})//esto es de forma explisita*/
+
+//para buscar un documento que tenga un objeto dentro
+/*db.inventory.find({"item.name":"ab"})*/
+/*db.inventory.find({"item.code":{$eq:"123"}})*/
+
+//Using $ne este tiene que ir explisito ajuro
+
+//esto lo que dice es que devuelva todo lo que no es igual a 20
+db.inventory.find({qty:{$ne:20}})

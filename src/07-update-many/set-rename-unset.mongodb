@@ -1,0 +1,37 @@
+/*
+$set //agrega atributo
+use("sample_training")
+db.zips.updateMany(
+  //query
+  {city:"CLEVELAND"},
+  //update - operators
+  {$set:{
+    myAtribute:"hola"//poblacion
+    }
+  }
+)
+*/
+/*
+$rename //cambia nombre de atributo
+use("sample_training")
+db.zips.updateMany(
+  //query
+  {city:"CLEVELAND"},
+  //update - operators
+  {$rename:{
+    myAtribute:"my_data"//poblacion
+    }
+  }
+)
+*/
+//$unset //elimina atributo 
+use("sample_training")
+db.zips.updateMany(
+  //query
+  {city:"CLEVELAND"},
+  //update - operators
+  {$unset:{
+    my_data:""//poblacion
+    }
+  }
+)

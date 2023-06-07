@@ -1,0 +1,5 @@
+use("sample_training")
+//11= a-z acendente
+//-1=z-a decendente
+//limit solo se puede usar despues de ordenar con sort
+db.zips.find({pop:{$gte:100}}).sort({pop:-1}).limit(2)

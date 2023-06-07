@@ -1,0 +1,51 @@
+use("platzi_store")
+
+// $in con in puedes obtener dentro de un array los elementos que indiquemos sirve para valores numericos especificos y arrays
+/*db.inventory.find(
+  {qty:{$in:[20,25]}}//siempre hay que poner un array y esta es una manera de hacer un or 20 o 25 esto lo que hace es buscar en el arreglo inventory los documentos que en qty tengan el valor de 20 o 25
+  )*/
+
+/*db.inventory.find(
+  {tags:{$in:['book','electronics']}}//esto no quiere decir que tienen que estar ambos en el documento es uno o otro
+)*/
+
+//$nin es el contrario que in y sirve para valores numericos y arrays osea va a buscar documentos que no tengan el query que pongamos
+/*db.inventory.find({
+  qty:{$nin:[20,25]}//esto lo que hace es buscar los documentos que no tengan una qty de 20 o 25
+})*/
+
+/*db.inventory.find({
+  tags:{$nin:['book','electronics']}//esto lo que hace es buscar los documentos que no tengan un tag de book o electronics
+})*/
+
+/*db.inventory.find(
+  {tags:'book'}//esto busca todos los documentos que tengan dentro del array tags la palabra book
+)*/
+
+//pero si quiero buscar un array directamete
+/*db.inventory.find(
+  {tags:["school","book"]}//esto busca lo documentos que dentro de su array tags tengan school y book los 2 y tienen que ser exacto ose la misma posicion que colocaste si lo tuviera al revez no sirve 
+)*/
+
+//los siguientes operadores solo funcionan para arrays  
+
+//array $all
+/*db.inventory.find(
+  {tags:{$all:["book","school"]}}//esto lo que quiere decir es que no importa el orden de los elementos me va a buscar los arrays que contengan los elementos que puse en el query tiene que tener todos los que le pusimos
+)*/
+
+//array $size
+/*db.inventory.find({
+  tags:{$size:2}//esto va a buscar arrays que tengan el tama:o de 2 elementos
+})*/
+
+//array $elemMatch
+/*db.survey.find({
+  results:{$elemMatch:{product:"xyz"}}//este me devuelve todos los documentos que tengan un array con un objeto adentro que encaje con el query
+})*/
+db.survey.find({
+  results:{
+    $elemMatch:{
+      product:"xyz",
+      score:{$gte:7}}}
+})

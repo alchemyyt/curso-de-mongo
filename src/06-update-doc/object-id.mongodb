@@ -1,0 +1,7 @@
+use("platzi_store")
+db.products.updateOne(
+  {_id:ObjectId('646d72b8f5651bac8c840282')},//para que el query funcione con un id generado por mongo usamos la funcion object id
+  {$inc:{//solo para valores con numero lo que hace es incrementar
+    price:500
+  }}//change=> operators
+  );

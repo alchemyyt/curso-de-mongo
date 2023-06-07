@@ -1,0 +1,17 @@
+use("platzi_store")
+//expresive compara elementos
+/*db.monthlyBudget.find({
+  spent:{$gte:100}
+})*/
+
+/*db.monthlyBudget.find({
+  $expr:{
+    $gte:["$spent",100]//para usar el expresive operator tenemos que poner el signo de dolar a lo que queremos buscar
+  }
+})*/
+
+db.monthlyBudget.find({
+  $expr:{
+    $gte:["$spent","$budget"]//aqui estoy diciendo dime cuales los documentos donde spent es mayor a budget
+  }
+})
